@@ -1,0 +1,27 @@
+name: tales-portfolio
+recipe: wordpress
+config:
+  php: 7.4
+  via: nginx
+  database: mariadb
+  webroot: .
+  xdebug: true
+  composer_version: 1
+services:
+  redis:
+    type: 'redis:5'
+    portforward: true
+    persist: true
+  pma:
+    type: phpmyadmin
+  appserver:
+    overrides:
+      environment:
+        XDEBUG_MODE:
+        PHP_IDE_CONFIG: "serverName=appserver"
+tooling:
+  xdebug:
+    description: Loads Xdebug in the selected mode (develop, coverage, debug, profile).
+    cmd:
+      - appserver: .lando/xdebug.sh
+    user: root
