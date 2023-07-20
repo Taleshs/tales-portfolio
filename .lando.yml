@@ -1,0 +1,4 @@
+name: tales-henrique
+recipe: wordpress
+config:
+  webroot: .
