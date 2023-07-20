@@ -32,6 +32,9 @@ if (file_exists(__DIR__ . '/' . $wp_db_config)) {
   exit('No database configuration found for this host');
 }
 
+define('UPLOADS', 'storage');
+
+
 /* That’s all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
